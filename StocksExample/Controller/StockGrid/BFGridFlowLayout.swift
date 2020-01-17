@@ -13,7 +13,7 @@ class BFGridFlowLayout: UICollectionViewFlowLayout {
      the layout can easily be changed to a different number of coloumns in a different orientations
      */
     fileprivate let columnsNumber = 2
-    fileprivate let itemSpacing = CGFloat(10)
+    fileprivate let itemSpacing = CGFloat(2)
     
     override init() {
         super.init()
