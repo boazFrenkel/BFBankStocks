@@ -10,37 +10,28 @@ import UIKit
 
 final class ViewController: UIViewController {
 
-    private var stocks: [Stock] = [Stock(name: "some name", symbol: "some symbol", imagePath: "some url", priority: 1),
-    Stock(name: "some name", symbol: "some symbol", imagePath: "some url", priority: 1),
-    Stock(name: "some name", symbol: "some symbol", imagePath: "some url", priority: 1)
-    ]
+    private var stocks = [Stock]()
+    var stockProvider: StocksDataProvider = StocksProvider()
     @IBOutlet weak var collectionView : UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.stocks = dataLoader.getStocks()
-        //setting a new grid that's easyly controlled
+        stocks = stockProvider.getStocks() ?? []
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         let flowLayout = BFGridFlowLayout()
         self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
     }
-
-
 }
 
-
-//MARK:- UICollectionViewDataSource
-extension ViewController : UICollectionViewDataSource{
+extension ViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return stocks.count
     }
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
         return 1
     }
     
@@ -53,11 +44,11 @@ extension ViewController : UICollectionViewDataSource{
         
         //configure the cell
         cell.setup(imagePath: stock.imagePath, name: stock.name)
+
         return cell
     }
 }
 
-//MARK:- UICollectionViewDelegate
 extension ViewController : UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -70,9 +61,6 @@ extension ViewController : UICollectionViewDelegate{
     
     
 }
-
-
-
 
 class BFGridFlowLayout: UICollectionViewFlowLayout {
     
