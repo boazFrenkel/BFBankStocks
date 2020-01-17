@@ -47,8 +47,10 @@ extension ViewController : UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GridViewCell.self), for: indexPath) as? GridViewCell
             else { fatalError("unexpected cell in collection view") }
         
-        cell.setup(imagePath: stock.imagePath, name: stock.name, symbol:
-            stock.symbol)
+        cell.nameLabel.text = stock.name
+        cell.symbolLabel.text = stock.symbol
+        cell.imageView.sd_setImage(with: URL(string: stock.imagePath), placeholderImage: UIImage(named: "placeholder.png"))
+
         return cell
     }
 }
