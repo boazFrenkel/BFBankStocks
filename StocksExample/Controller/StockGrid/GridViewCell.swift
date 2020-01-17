@@ -14,6 +14,14 @@ class GridViewCell: UICollectionViewCell {
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderWidth = 1
+        self.imageView.layer.borderColor = UIColor.lightGray.cgColor
+        self.imageView.layer.borderWidth = 1
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         self.imageView.image = nil
