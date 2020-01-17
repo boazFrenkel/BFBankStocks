@@ -1,30 +1,12 @@
 //
-//  Stock.swift
+//  StocksProvider.swift
 //  StocksExample
 //
-//  Created by Boaz Frenkel on 15/01/2020.
+//  Created by Boaz Frenkel on 17/01/2020.
 //  Copyright © 2020 boaz. All rights reserved.
 //
 
 import Foundation
-
-typealias Json = [String : Any]
-
-struct Stock: Decodable {
-    var name : String
-    var symbol : String
-    var imagePath : String
-    var priority : String
-    
-    private enum CodingKeys: String, CodingKey {
-        case name = "name"
-        case symbol = "stk"
-        case imagePath = "img"
-        case priority = "priority"
-    }
-}
-
-
 
 protocol StocksDataProvider {
     func getStocks() -> [Stock]?
@@ -58,5 +40,3 @@ struct StocksProvider: StocksDataProvider {
         
     """
 }
-
-
