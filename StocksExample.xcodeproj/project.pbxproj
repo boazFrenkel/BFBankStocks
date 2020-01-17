@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C3084BB23D1A41D009B00DA /* StocksProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084BA23D1A41D009B00DA /* StocksProvider.swift */; };
+		4C3084C023D1A50B009B00DA /* BFGridFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084BF23D1A50B009B00DA /* BFGridFlowLayout.swift */; };
+		4C3084C323D1A56B009B00DA /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084C223D1A56B009B00DA /* GridViewCell.swift */; };
 		4CAF74FC23CF961D002C2E56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */; };
 		4CAF74FE23CF961D002C2E56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */; };
 		4CAF750023CF961D002C2E56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FF23CF961D002C2E56 /* ViewController.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C3084BA23D1A41D009B00DA /* StocksProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksProvider.swift; sourceTree = "<group>"; };
+		4C3084BF23D1A50B009B00DA /* BFGridFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFGridFlowLayout.swift; sourceTree = "<group>"; };
+		4C3084C223D1A56B009B00DA /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
 		4CAF74F823CF961D002C2E56 /* StocksExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +66,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C3084B923D1A3EB009B00DA /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				4CAF750123CF961D002C2E56 /* Main.storyboard */,
+				4CAF750623CF961E002C2E56 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		4C3084BC23D1A485009B00DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4C3084BE23D1A4DD009B00DA /* StockGrid */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4C3084BE23D1A4DD009B00DA /* StockGrid */ = {
+			isa = PBXGroup;
+			children = (
+				4CAF74FF23CF961D002C2E56 /* ViewController.swift */,
+				4C3084BF23D1A50B009B00DA /* BFGridFlowLayout.swift */,
+				4C3084C223D1A56B009B00DA /* GridViewCell.swift */,
+			);
+			path = StockGrid;
+			sourceTree = "<group>";
+		};
 		4CAF74EF23CF961D002C2E56 = {
 			isa = PBXGroup;
 			children = (
@@ -81,15 +114,14 @@
 		4CAF74FA23CF961D002C2E56 /* StocksExample */ = {
 			isa = PBXGroup;
 			children = (
+				4C3084B923D1A3EB009B00DA /* Storyboard */,
 				4CAF751E23CFB4B3002C2E56 /* Services */,
-				4CAF751D23CFB49E002C2E56 /* Models */,
+				4CAF751D23CFB49E002C2E56 /* Model */,
+				4C3084BC23D1A485009B00DA /* Controller */,
+				4CAF750423CF961E002C2E56 /* Assets.xcassets */,
+				4CAF750923CF961E002C2E56 /* Info.plist */,
 				4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */,
 				4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */,
-				4CAF74FF23CF961D002C2E56 /* ViewController.swift */,
-				4CAF750123CF961D002C2E56 /* Main.storyboard */,
-				4CAF750423CF961E002C2E56 /* Assets.xcassets */,
-				4CAF750623CF961E002C2E56 /* LaunchScreen.storyboard */,
-				4CAF750923CF961E002C2E56 /* Info.plist */,
 			);
 			path = StocksExample;
 			sourceTree = "<group>";
@@ -103,17 +135,18 @@
 			path = StocksExampleTests;
 			sourceTree = "<group>";
 		};
-		4CAF751D23CFB49E002C2E56 /* Models */ = {
+		4CAF751D23CFB49E002C2E56 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4CAF751F23CFBAA4002C2E56 /* Stock.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4CAF751E23CFB4B3002C2E56 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4C3084BA23D1A41D009B00DA /* StocksProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -220,7 +253,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CAF750023CF961D002C2E56 /* ViewController.swift in Sources */,
+				4C3084C323D1A56B009B00DA /* GridViewCell.swift in Sources */,
+				4C3084BB23D1A41D009B00DA /* StocksProvider.swift in Sources */,
 				4CAF74FC23CF961D002C2E56 /* AppDelegate.swift in Sources */,
+				4C3084C023D1A50B009B00DA /* BFGridFlowLayout.swift in Sources */,
 				4CAF752023CFBAA4002C2E56 /* Stock.swift in Sources */,
 				4CAF74FE23CF961D002C2E56 /* SceneDelegate.swift in Sources */,
 			);
