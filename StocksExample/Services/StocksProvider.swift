@@ -9,27 +9,33 @@
 import Foundation
 
 protocol StocksDataProvider {
-    func getStocks() -> [Stock]?
+    func getStocksSortedByPriority() -> [Stock]?
 }
 
-struct StocksProvider: StocksDataProvider {
+struct LocalStocksProvider: StocksDataProvider {
     
-    func getStocks() -> [Stock]? {
-        
+    func getStocksSortedByPriority() -> [Stock]? {
         do {
-            let content = Data(banksJsonString.utf8)
+            let content = banksJson
             let decoder = JSONDecoder()
             let model = try decoder.decode([Stock].self,
                                            from: content)
-            return model
+            return model.sorted(by: sorterForPriority)
+            
         } catch let parsingError {
             print("Error", parsingError)
             return nil
         }
     }
     
-    let banksJsonString :String =
-    """
+    private func sorterForPriority(this:Stock, that:Stock) -> Bool {
+        let thisPriority = Int(this.priority) ?? 0
+        let thatPriority = Int(that.priority) ?? 0
+        return thisPriority > thatPriority
+    }
+    
+    let banksJson =
+        """
         [
         { "name":"JPMorgan", "stk":"JPM", "img":"https://www.interbrand.com/assets/00000001535.png","priority":"100" },
         { "name":"Bank of America", "stk":"BAC", "img":"https://www.charlotteobserver.com/latest-news/uiy86c/picture6131838/alternates/FREE_1140/E8VhA.So.138.jpg","priority":"99" },
@@ -38,5 +44,5 @@ struct StocksProvider: StocksDataProvider {
         { "name":"Morgan Stanley", "stk":"MS", "img":"https://www.spglobal.com/_assets/images/leveragedloan/2012/07/morgan-stanley-logo.jpg","priority":"15"  }
         ]
         
-    """
+    """.data(using: .utf8)!
 }
