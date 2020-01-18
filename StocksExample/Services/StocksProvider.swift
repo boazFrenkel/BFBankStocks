@@ -12,12 +12,12 @@ protocol StocksDataProvider {
     func getStocks() -> [Stock]?
 }
 
-struct StocksProvider: StocksDataProvider {
+struct LocalStocksProvider: StocksDataProvider {
     
     func getStocks() -> [Stock]? {
         
         do {
-            let content = Data(banksJsonString.utf8)
+            let content = banksJsonString
             let decoder = JSONDecoder()
             let model = try decoder.decode([Stock].self,
                                            from: content)
@@ -28,7 +28,7 @@ struct StocksProvider: StocksDataProvider {
         }
     }
     
-    let banksJsonString :String =
+    let banksJsonString =
     """
         [
         { "name":"JPMorgan", "stk":"JPM", "img":"https://www.interbrand.com/assets/00000001535.png","priority":"100" },
@@ -38,5 +38,5 @@ struct StocksProvider: StocksDataProvider {
         { "name":"Morgan Stanley", "stk":"MS", "img":"https://www.spglobal.com/_assets/images/leveragedloan/2012/07/morgan-stanley-logo.jpg","priority":"15"  }
         ]
         
-    """
+    """.data(using: .utf8)!
 }

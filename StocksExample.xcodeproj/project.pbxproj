@@ -11,9 +11,10 @@
 		4C3084C023D1A50B009B00DA /* BFGridFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084BF23D1A50B009B00DA /* BFGridFlowLayout.swift */; };
 		4C3084C323D1A56B009B00DA /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084C223D1A56B009B00DA /* GridViewCell.swift */; };
 		4C3084C623D1B50E009B00DA /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4C3084C523D1B50E009B00DA /* SDWebImage */; };
+		4C3084C923D20D59009B00DA /* StockQuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084C823D20D59009B00DA /* StockQuotesViewController.swift */; };
 		4CAF74FC23CF961D002C2E56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */; };
 		4CAF74FE23CF961D002C2E56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */; };
-		4CAF750023CF961D002C2E56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FF23CF961D002C2E56 /* ViewController.swift */; };
+		4CAF750023CF961D002C2E56 /* BankStocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FF23CF961D002C2E56 /* BankStocksViewController.swift */; };
 		4CAF750323CF961D002C2E56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF750123CF961D002C2E56 /* Main.storyboard */; };
 		4CAF750523CF961E002C2E56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF750423CF961E002C2E56 /* Assets.xcassets */; };
 		4CAF750823CF961E002C2E56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF750623CF961E002C2E56 /* LaunchScreen.storyboard */; };
@@ -35,10 +36,11 @@
 		4C3084BA23D1A41D009B00DA /* StocksProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksProvider.swift; sourceTree = "<group>"; };
 		4C3084BF23D1A50B009B00DA /* BFGridFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFGridFlowLayout.swift; sourceTree = "<group>"; };
 		4C3084C223D1A56B009B00DA /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
+		4C3084C823D20D59009B00DA /* StockQuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockQuotesViewController.swift; sourceTree = "<group>"; };
 		4CAF74F823CF961D002C2E56 /* StocksExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4CAF74FF23CF961D002C2E56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CAF74FF23CF961D002C2E56 /* BankStocksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankStocksViewController.swift; sourceTree = "<group>"; };
 		4CAF750223CF961D002C2E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CAF750423CF961E002C2E56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CAF750723CF961E002C2E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		4C3084BC23D1A485009B00DA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4C3084C723D20D07009B00DA /* StockQuotes */,
 				4C3084BE23D1A4DD009B00DA /* StockGrid */,
 			);
 			path = Controller;
@@ -88,11 +91,19 @@
 		4C3084BE23D1A4DD009B00DA /* StockGrid */ = {
 			isa = PBXGroup;
 			children = (
-				4CAF74FF23CF961D002C2E56 /* ViewController.swift */,
+				4CAF74FF23CF961D002C2E56 /* BankStocksViewController.swift */,
 				4C3084BF23D1A50B009B00DA /* BFGridFlowLayout.swift */,
 				4C3084C223D1A56B009B00DA /* GridViewCell.swift */,
 			);
 			path = StockGrid;
+			sourceTree = "<group>";
+		};
+		4C3084C723D20D07009B00DA /* StockQuotes */ = {
+			isa = PBXGroup;
+			children = (
+				4C3084C823D20D59009B00DA /* StockQuotesViewController.swift */,
+			);
+			path = StockQuotes;
 			sourceTree = "<group>";
 		};
 		4CAF74EF23CF961D002C2E56 = {
@@ -260,12 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CAF750023CF961D002C2E56 /* ViewController.swift in Sources */,
+				4CAF750023CF961D002C2E56 /* BankStocksViewController.swift in Sources */,
 				4C3084C323D1A56B009B00DA /* GridViewCell.swift in Sources */,
 				4C3084BB23D1A41D009B00DA /* StocksProvider.swift in Sources */,
 				4CAF74FC23CF961D002C2E56 /* AppDelegate.swift in Sources */,
 				4C3084C023D1A50B009B00DA /* BFGridFlowLayout.swift in Sources */,
 				4CAF752023CFBAA4002C2E56 /* Stock.swift in Sources */,
+				4C3084C923D20D59009B00DA /* StockQuotesViewController.swift in Sources */,
 				4CAF74FE23CF961D002C2E56 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
