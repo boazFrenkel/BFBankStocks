@@ -9,10 +9,10 @@
 import UIKit
 import SDWebImage
 
-final class ViewController: UIViewController {
+final class BankStocksViewController: UIViewController {
     
     private var stocks = [Stock]()
-    var stockProvider: StocksDataProvider = StocksProvider()
+    var stockProvider: StocksDataProvider = LocalStocksProvider()
     @IBOutlet weak var collectionView : UICollectionView!
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController : UICollectionViewDataSource {
+extension BankStocksViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return stocks.count
@@ -56,7 +56,7 @@ extension ViewController : UICollectionViewDataSource {
     }
 }
 
-extension ViewController : UICollectionViewDelegate{
+extension BankStocksViewController : UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -65,6 +65,5 @@ extension ViewController : UICollectionViewDelegate{
         //Navigate to next screen
         
     }
-    
     
 }
