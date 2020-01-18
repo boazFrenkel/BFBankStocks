@@ -21,15 +21,22 @@ struct LocalStocksProvider: StocksDataProvider {
             let decoder = JSONDecoder()
             let model = try decoder.decode([Stock].self,
                                            from: content)
-            return model
+            return model.sorted(by: sorterForPriority)
+            
         } catch let parsingError {
             print("Error", parsingError)
             return nil
         }
     }
     
+    private func sorterForPriority(this:Stock, that:Stock) -> Bool {
+        let thisPriority = Int(this.priority) ?? 0
+        let thatPriority = Int(that.priority) ?? 0
+        return thisPriority > thatPriority
+    }
+    
     let banksJsonString =
-    """
+        """
         [
         { "name":"JPMorgan", "stk":"JPM", "img":"https://www.interbrand.com/assets/00000001535.png","priority":"100" },
         { "name":"Bank of America", "stk":"BAC", "img":"https://www.charlotteobserver.com/latest-news/uiy86c/picture6131838/alternates/FREE_1140/E8VhA.So.138.jpg","priority":"99" },
