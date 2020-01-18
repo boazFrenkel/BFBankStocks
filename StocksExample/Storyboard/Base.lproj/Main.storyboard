@@ -34,15 +34,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ddY-de-Z4o">
-                                                    <rect key="frame" x="45.5" y="16" width="100" height="99"/>
+                                                    <rect key="frame" x="48" y="16" width="95.5" height="94.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="DM3-xi-7Au"/>
                                                         <constraint firstAttribute="width" secondItem="ddY-de-Z4o" secondAttribute="height" multiplier="1:1" constant="1" id="PiW-e0-tbf"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-GS-adh">
-                                                    <rect key="frame" x="73.5" y="123" width="44.5" height="50"/>
+                                                    <rect key="frame" x="73.5" y="118.5" width="44.5" height="54.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="ctF-Eo-2tU">
                                                             <rect key="frame" x="0.0" y="0.0" width="44.5" height="30"/>
@@ -54,20 +53,21 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5l-rd-DkZ">
-                                                            <rect key="frame" x="0.0" y="26" width="44.5" height="24"/>
+                                                            <rect key="frame" x="0.0" y="26" width="44.5" height="28.5"/>
                                                             <fontDescription key="fontDescription" name="NotoSansMyanmar-Bold" family="Noto Sans Myanmar" pointSize="17"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="AA5-GS-adh" firstAttribute="top" secondItem="ddY-de-Z4o" secondAttribute="bottom" constant="8" id="GmZ-Yl-F7b"/>
+                                                <constraint firstItem="ddY-de-Z4o" firstAttribute="width" secondItem="GzI-eB-8nU" secondAttribute="width" multiplier="0.5" id="Kjc-kJ-H7i"/>
                                                 <constraint firstItem="ddY-de-Z4o" firstAttribute="centerX" secondItem="GzI-eB-8nU" secondAttribute="centerX" id="L6X-af-gHu"/>
                                                 <constraint firstItem="AA5-GS-adh" firstAttribute="centerX" secondItem="GzI-eB-8nU" secondAttribute="centerX" id="aIM-o0-6dM"/>
-                                                <constraint firstAttribute="bottom" secondItem="AA5-GS-adh" secondAttribute="bottom" constant="16" id="dhL-Gp-GuG"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AA5-GS-adh" secondAttribute="bottom" constant="16" id="dhL-Gp-GuG"/>
                                                 <constraint firstItem="ddY-de-Z4o" firstAttribute="top" secondItem="GzI-eB-8nU" secondAttribute="top" constant="16" id="hHm-Dy-hBC"/>
                                             </constraints>
                                         </collectionViewCellContentView>

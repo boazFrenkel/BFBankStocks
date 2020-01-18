@@ -9,15 +9,14 @@
 import Foundation
 
 protocol StocksDataProvider {
-    func getStocks() -> [Stock]?
+    func getStocksSortedByPriority() -> [Stock]?
 }
 
 struct LocalStocksProvider: StocksDataProvider {
     
-    func getStocks() -> [Stock]? {
-        
+    func getStocksSortedByPriority() -> [Stock]? {
         do {
-            let content = banksJsonString
+            let content = banksJson
             let decoder = JSONDecoder()
             let model = try decoder.decode([Stock].self,
                                            from: content)
@@ -35,7 +34,7 @@ struct LocalStocksProvider: StocksDataProvider {
         return thisPriority > thatPriority
     }
     
-    let banksJsonString =
+    let banksJson =
         """
         [
         { "name":"JPMorgan", "stk":"JPM", "img":"https://www.interbrand.com/assets/00000001535.png","priority":"100" },
