@@ -17,7 +17,7 @@ final class BankStocksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stocks = stockProvider.getStocks() ?? []
+        stocks = stockProvider.getStocksSortedByPriority() ?? []
         setupCollection()
     }
     
@@ -50,8 +50,8 @@ extension BankStocksViewController : UICollectionViewDataSource {
         
         cell.nameLabel.text = stock.name
         cell.symbolLabel.text = stock.symbol
-        cell.imageView.sd_setImage(with: URL(string: stock.imagePath), placeholderImage: UIImage(named: "placeholder.png"))
-
+        cell.imageView.sd_setImage(with: URL(string: stock.imagePath), placeholderImage: UIImage(named: "bankPlaceholder"))
+        
         return cell
     }
 }
@@ -60,30 +60,11 @@ extension BankStocksViewController : UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        collectionView.deselectItem(at: indexPath, animated: false)
-
+        let stock = stocks[indexPath.row]
         let vc: QuotesViewController = QuotesViewController.create(storyboard:"StockQuotes")
-        vc.symbol = stocks[indexPath.row].symbol
+        vc.stockSymbol = stock.symbol
+        vc.stockName = stock.name
         self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
-    
-}
-
-
-extension UIViewController
-{
-    
-    static func create<T: UIViewController>(storyboard: String) -> T
-    {
-        let sb = UIStoryboard(name: storyboard, bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: self.className)
-        return vc as! T
-    }
-}
-
-extension NSObject {
-    static var className: String {
-        return String(describing: self)
+        collectionView.deselectItem(at: indexPath, animated: false)
     }
 }
