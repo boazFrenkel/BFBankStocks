@@ -10,13 +10,14 @@ import Foundation
 
 protocol QuotesAPI {
     func getQuotes(for symbol: String, interval: String, onSuccess: @escaping (_ quotes: [Quote])->(), onError: @escaping (Error) -> Void )
-    
 }
 
 struct AlphaVantageQuotesAPIService: QuotesAPI {
+    
     func getQuotes(for symbol: String, interval: String, onSuccess: @escaping (_ quotes: [Quote]) -> (), onError: @escaping (Error) -> Void) {
-        let BASE_URL: String =  "https://www.alphavantage.co/"
-        let API_KEY: String =  "Z8EW6CI3PHR9SUTK"
+        let BASE_URL: String = "https://www.alphavantage.co/"
+        let API_KEY: String = "Z8EW6CI3PHR9SUTK"
+        
         let url = URL(string: "\(BASE_URL)query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)&interval=\(interval)&apikey=\(API_KEY)")
         
         URLSession.shared.dataTask(with: url!){ (data, response, err) in
@@ -25,11 +26,10 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
             do{
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as AnyObject
                 var quotes = [Quote]()
-                #warning("For Development Only, remove")
-//                if let information = json["Meta Data"] as? NSDictionary{
-//                    print("The meta data is: \(information)")
-//                }
-//
+                if let errorString = json["Error Message"] as? String {
+                    onError(AlphaVantageQuoteError.invalidApiCall(message: errorString))
+                }
+
                 if let prices = json["Time Series (\(interval))"] as? NSDictionary{
                     guard let priceArray = prices as? [String: AnyObject] else {return}
                     for (key, value) in priceArray{
@@ -43,10 +43,14 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
                 }
                 
                 onSuccess(quotes)
-            }catch let err{
+            } catch let err {
                 onError(err)
             }
         }.resume()
+    }
+    
+    enum AlphaVantageQuoteError: Error {
+        case invalidApiCall(message: String)
     }
     
 }
