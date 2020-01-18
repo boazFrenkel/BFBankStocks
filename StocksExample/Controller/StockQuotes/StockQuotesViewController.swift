@@ -24,7 +24,7 @@ protocol QuatesAPI {
 
 struct AlphaVantageQuatesAPIService: QuatesAPI {
     func getQuates(for symbol: String, interval: String, onSuccess: @escaping (_ quates: [Quate]) -> (), onError: @escaping (Error) -> Void) {
-        
+        let BASE_URL: String? =  "https://www.alphavantage.co/"
     }
     
 }
