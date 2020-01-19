@@ -14,33 +14,19 @@ protocol QuotesAPI {
 }
 
 struct AlphaVantageQuotesAPIService: QuotesAPI {
-    let provider = MoyaProvider<AlphaVantageService>()
     
-    func test(for symbol: String, interval: String) {
-        provider.request(.quotes(symbol: symbol, interval: interval)) { (result) in
-            
-            switch result {
-            case .success(let response):
-                do {
-                    print(try response.mapJSON())
-                } catch {
-                    
-                }
-            case .failure:
-                print(result.error?.errorDescription ?? "")
-            }
-        }
-    }
+    let provider = MoyaProvider<AlphaVantageProvider>()
+
     func getQuotes(for symbol: String, interval: String, onSuccess: @escaping (_ quotes: [Quote]) -> (), onError: @escaping (Error) -> Void) {
         
         provider.request(.quotes(symbol: symbol, interval: interval)) { (result) in
-            //We don't want to do work on the main thread
+            //We don't want to do this work on the main thread
             DispatchQueue.global(qos: .userInitiated).async {
                 switch result {
                 case .success(let response):
                     do {
                         let json = try response.mapJSON(failsOnEmptyData: true) as! Json
-                        var quotes = [Quote]()
+                        
                         if let errorString = json["Error Message"] as? String {
                             onError(AlphaVantageQuoteError.errorOnApiCall(message: errorString))
                             return
@@ -53,8 +39,10 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
                         /*
                          The array of relevent quotes is nested inside a dynamic (depends on the interval param we sent) Time Series + (xmin) key
                          */
-                        if let timeSeries = json["Time Series (\(interval))"] as? NSDictionary {
-                            guard let times = timeSeries as? [String: AnyObject] else {
+                        var quotes = [Quote]()
+                        guard let timeSeries = json["Time Series (\(interval))"] as? NSDictionary,
+                            let times = timeSeries as? [String: AnyObject]
+                            else {
                                 onError(AlphaVantageQuoteError.parsingError)
                                 return
                                 
@@ -75,17 +63,12 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
                                 quotes.append(Quote(date: key, open: open, high: high, low: low, close: close, volume: volume))
                             }
                             onSuccess(quotes)
-                        } else {
-                            onError(AlphaVantageQuoteError.parsingError)
-                            return
-                        }
                         
                     } catch {
                         onError(AlphaVantageQuoteError.networkError)
                         return
                     }
                 case .failure(let error):
-                    print(result.error?.errorDescription ?? "")
                     onError(error)
                     return
                 }
