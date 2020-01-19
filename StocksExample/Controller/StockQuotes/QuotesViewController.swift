@@ -58,7 +58,6 @@ final class QuotesViewController: UIViewController {
     
     private func showAlert(for error: Error) {
         let alert = UIAlertController(title: "Oops", message: "\(error)", preferredStyle: .alert)
-
         self.present(alert, animated: true, completion: nil)
     }
 }
