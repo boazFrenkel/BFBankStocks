@@ -20,6 +20,8 @@
 		4C3084D623D3A8C8009B00DA /* UIViewControllerExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084D523D3A8C8009B00DA /* UIViewControllerExtension .swift */; };
 		4C3084D823D3AE57009B00DA /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084D723D3AE57009B00DA /* NSObjectExtension.swift */; };
 		4C3084DA23D4232B009B00DA /* QuotsdDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084D923D4232B009B00DA /* QuotsdDataLoaderTests.swift */; };
+		4C3084DD23D47064009B00DA /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 4C3084DC23D47064009B00DA /* Moya */; };
+		4C3084DF23D4774A009B00DA /* AlphaVantageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084DE23D4774A009B00DA /* AlphaVantageService.swift */; };
 		4CAF74FC23CF961D002C2E56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */; };
 		4CAF74FE23CF961D002C2E56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */; };
 		4CAF750023CF961D002C2E56 /* BankStocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FF23CF961D002C2E56 /* BankStocksViewController.swift */; };
@@ -53,6 +55,7 @@
 		4C3084D523D3A8C8009B00DA /* UIViewControllerExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllerExtension .swift"; sourceTree = "<group>"; };
 		4C3084D723D3AE57009B00DA /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		4C3084D923D4232B009B00DA /* QuotsdDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotsdDataLoaderTests.swift; sourceTree = "<group>"; };
+		4C3084DE23D4774A009B00DA /* AlphaVantageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageService.swift; sourceTree = "<group>"; };
 		4CAF74F823CF961D002C2E56 /* StocksExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C3084DD23D47064009B00DA /* Moya in Frameworks */,
 				4C3084C623D1B50E009B00DA /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +196,7 @@
 				4C3084BA23D1A41D009B00DA /* StocksProvider.swift */,
 				4C3084CC23D31B99009B00DA /* quotesAPIService.swift */,
 				4C3084CE23D31C18009B00DA /* QuotesDataProvider.swift */,
+				4C3084DE23D4774A009B00DA /* AlphaVantageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 			name = StocksExample;
 			packageProductDependencies = (
 				4C3084C523D1B50E009B00DA /* SDWebImage */,
+				4C3084DC23D47064009B00DA /* Moya */,
 			);
 			productName = StocksExample;
 			productReference = 4CAF74F823CF961D002C2E56 /* StocksExample.app */;
@@ -267,6 +273,7 @@
 			mainGroup = 4CAF74EF23CF961D002C2E56;
 			packageReferences = (
 				4C3084C423D1B50E009B00DA /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				4C3084DB23D47064009B00DA /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 4CAF74F923CF961D002C2E56 /* Products */;
 			projectDirPath = "";
@@ -305,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CAF750023CF961D002C2E56 /* BankStocksViewController.swift in Sources */,
+				4C3084DF23D4774A009B00DA /* AlphaVantageService.swift in Sources */,
 				4C3084C323D1A56B009B00DA /* GridViewCell.swift in Sources */,
 				4C3084BB23D1A41D009B00DA /* StocksProvider.swift in Sources */,
 				4CAF74FC23CF961D002C2E56 /* AppDelegate.swift in Sources */,
@@ -595,6 +603,14 @@
 				minimumVersion = 5.5.0;
 			};
 		};
+		4C3084DB23D47064009B00DA /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -602,6 +618,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4C3084C423D1B50E009B00DA /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		4C3084DC23D47064009B00DA /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C3084DB23D47064009B00DA /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
