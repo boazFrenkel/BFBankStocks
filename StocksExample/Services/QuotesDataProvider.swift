@@ -21,10 +21,14 @@ struct QuotesDataLoader: QuotesDataProvider {
         
         DispatchQueue.global(qos: .userInitiated).async {
             self.quotesAPIService.getQuotes(for: symbol, interval: interval, onSuccess: { (quotes) in
+                
+                let sortedQuotes = quotes.sorted(by: Quote.sorterForQuoteDate(this:that:))
+                
                 DispatchQueue.main.async {
-                    onSuccess(quotes.sorted(by: Quote.sorterForQuoteDate(this:that:)))
+                    onSuccess(sortedQuotes)
                 }
             }) { (error) in
+                
                 DispatchQueue.main.async {
                     onError(error)
                 }

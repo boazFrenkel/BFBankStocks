@@ -19,6 +19,7 @@
 		4C3084D323D3A696009B00DA /* QuoteTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084D223D3A696009B00DA /* QuoteTableCell.swift */; };
 		4C3084D623D3A8C8009B00DA /* UIViewControllerExtension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084D523D3A8C8009B00DA /* UIViewControllerExtension .swift */; };
 		4C3084D823D3AE57009B00DA /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084D723D3AE57009B00DA /* NSObjectExtension.swift */; };
+		4C3084DA23D4232B009B00DA /* QuotsdDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084D923D4232B009B00DA /* QuotsdDataLoaderTests.swift */; };
 		4CAF74FC23CF961D002C2E56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */; };
 		4CAF74FE23CF961D002C2E56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */; };
 		4CAF750023CF961D002C2E56 /* BankStocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FF23CF961D002C2E56 /* BankStocksViewController.swift */; };
@@ -51,6 +52,7 @@
 		4C3084D223D3A696009B00DA /* QuoteTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableCell.swift; sourceTree = "<group>"; };
 		4C3084D523D3A8C8009B00DA /* UIViewControllerExtension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllerExtension .swift"; sourceTree = "<group>"; };
 		4C3084D723D3AE57009B00DA /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
+		4C3084D923D4232B009B00DA /* QuotsdDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotsdDataLoaderTests.swift; sourceTree = "<group>"; };
 		4CAF74F823CF961D002C2E56 /* StocksExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		4CAF751123CF961E002C2E56 /* StocksExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				4C3084D923D4232B009B00DA /* QuotsdDataLoaderTests.swift */,
 				4CAF751223CF961E002C2E56 /* StocksExampleTests.swift */,
 				4CAF751423CF961E002C2E56 /* Info.plist */,
 			);
@@ -322,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C3084DA23D4232B009B00DA /* QuotsdDataLoaderTests.swift in Sources */,
 				4CAF751323CF961E002C2E56 /* StocksExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
