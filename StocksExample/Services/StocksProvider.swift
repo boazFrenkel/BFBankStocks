@@ -23,6 +23,7 @@ struct LocalStocksProvider: StocksDataProvider {
             return model.sorted(by: sorterForPriority)
             
         } catch let parsingError {
+            //Handle the error better
             print("Error", parsingError)
             return nil
         }
