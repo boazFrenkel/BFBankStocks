@@ -1,5 +1,5 @@
 //
-//  AlphaVantageService.swift
+//  AlphaVantageProvider.swift
 //  StocksExample
 //
 //  Created by Boaz Frenkel on 19/01/2020.
@@ -10,14 +10,14 @@ import Foundation
 
 import Moya
 
-public enum AlphaVantageService {
+public enum AlphaVantageProvider {
     
     static private let apiKey = "Z8EW6CI3PHR9SUTK"
     
     case quotes(symbol: String, interval: String)
 }
 
-extension AlphaVantageService: TargetType {
+extension AlphaVantageProvider: TargetType {
     
     public var baseURL: URL {
         return URL(string: "https://www.alphavantage.co")!
@@ -48,7 +48,7 @@ extension AlphaVantageService: TargetType {
                 "function": "TIME_SERIES_INTRADAY",
                 "symbol": symbol,
                 "interval": interval,
-                "apikey": AlphaVantageService.apiKey
+                "apikey": AlphaVantageProvider.apiKey
             ]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }

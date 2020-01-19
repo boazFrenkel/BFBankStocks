@@ -46,7 +46,6 @@ final class QuotesViewController: UIViewController {
             }
         }) { (error) in
             //Handle the error gracefully and not this simple alert
-            print("🧣 error getting quotes, \(error)")
             self.activityIndicator.stopAnimating()
             self.showAlert(for:error)
         }
