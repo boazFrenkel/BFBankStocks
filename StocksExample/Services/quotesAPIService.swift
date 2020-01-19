@@ -32,12 +32,19 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
                 if let errorString = json["Error Message"] as? String {
                     onError(AlphaVantageQuoteError.errorOnApiCall(message: errorString))
                 }
+                if let errorString = json["Note"] as? String {
+                    onError(AlphaVantageQuoteError.errorOnApiCall(message: errorString))
+                }
                 
                 /*
                  The array of relevent quotes is nested inside a dynamic (depends on the interval param we sent) Time Series + (xmin) key
                  */
-                if let timeSeries = json["Time Series (\(interval))"] as? NSDictionary{
-                    guard let times = timeSeries as? [String: AnyObject] else {return}
+                if let timeSeries = json["Time Series (\(interval))"] as? NSDictionary {
+                    guard let times = timeSeries as? [String: AnyObject] else {
+                        onError(AlphaVantageQuoteError.parsingError)
+                        return
+                        
+                    }
                     /*
                      Quote Model is built with the date so we have to "flatten" the Json to add the dynamic date key for each qoute
                      */
@@ -53,6 +60,9 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
                         }
                         quotes.append(Quote(date: key, open: open, high: high, low: low, close: close, volume: volume))
                     }
+                } else {
+                    onError(AlphaVantageQuoteError.parsingError)
+                    return
                 }
                 
                 onSuccess(quotes)

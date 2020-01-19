@@ -45,14 +45,21 @@ final class QuotesViewController: UIViewController {
                 self.quotesTableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
             }
         }) { (error) in
-            //Handle the error gracefully
+            //Handle the error gracefully and not this simple alert
             print("🧣 error getting quotes, \(error)")
             self.activityIndicator.stopAnimating()
+            self.showAlert(for:error)
         }
     }
     
     @IBAction func intervalSelected(_ sender: Any) {
         loadQuotes()
+    }
+    
+    private func showAlert(for error: Error) {
+        let alert = UIAlertController(title: "Oops", message: "\(error)", preferredStyle: .alert)
+
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
