@@ -16,7 +16,7 @@ protocol QuotesAPI {
 struct AlphaVantageQuotesAPIService: QuotesAPI {
     
     let provider = MoyaProvider<AlphaVantageProvider>()
-
+    
     func getQuotes(for symbol: String, interval: String, onSuccess: @escaping (_ quotes: [Quote]) -> (), onError: @escaping (Error) -> Void) {
         
         provider.request(.quotes(symbol: symbol, interval: interval)) { (result) in
@@ -46,23 +46,23 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
                                 onError(AlphaVantageQuoteError.parsingError)
                                 return
                                 
+                        }
+                        /*
+                         Quote Model is built with the date so we have to "flatten" the Json to add the dynamic date key for each qoute
+                         */
+                        for (key, value) in times {
+                            guard let open = value["1. open"] as? String,
+                                let high = value["2. high"] as? String,
+                                let low = value["3. low"] as? String,
+                                let close = value["4. close"] as? String,
+                                let volume = value["5. volume"] as? String
+                                else {
+                                    onError(AlphaVantageQuoteError.parsingError)
+                                    return
                             }
-                            /*
-                             Quote Model is built with the date so we have to "flatten" the Json to add the dynamic date key for each qoute
-                             */
-                            for (key, value) in times {
-                                guard let open = value["1. open"] as? String,
-                                    let high = value["2. high"] as? String,
-                                    let low = value["3. low"] as? String,
-                                    let close = value["4. close"] as? String,
-                                    let volume = value["5. volume"] as? String
-                                    else {
-                                        onError(AlphaVantageQuoteError.parsingError)
-                                        return
-                                }
-                                quotes.append(Quote(date: key, open: open, high: high, low: low, close: close, volume: volume))
-                            }
-                            onSuccess(quotes)
+                            quotes.append(Quote(date: key, open: open, high: high, low: low, close: close, volume: volume))
+                        }
+                        onSuccess(quotes)
                         
                     } catch {
                         onError(AlphaVantageQuoteError.networkError)

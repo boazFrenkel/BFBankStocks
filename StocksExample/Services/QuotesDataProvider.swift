@@ -19,19 +19,19 @@ struct QuotesDataLoader: QuotesDataProvider {
     //return quotes sorted by quote date
     func getQuotesSortedByDate(for symbol: String, interval: String, onSuccess: @escaping ([Quote]) -> (), onError: @escaping (Error) -> Void) {
         
-            self.quotesAPIService.getQuotes(for: symbol, interval: interval, onSuccess: { (quotes) in
-                
-                let sortedQuotes = quotes.sorted(by: Quote.sorterForQuoteDate(this:that:))
-                
-                DispatchQueue.main.async {
-                    onSuccess(sortedQuotes)
-                }
-            }) { (error) in
-                
-                DispatchQueue.main.async {
-                    onError(error)
-                }
+        self.quotesAPIService.getQuotes(for: symbol, interval: interval, onSuccess: { (quotes) in
+            
+            let sortedQuotes = quotes.sorted(by: Quote.sorterForQuoteDate(this:that:))
+            
+            DispatchQueue.main.async {
+                onSuccess(sortedQuotes)
             }
+        }) { (error) in
+            
+            DispatchQueue.main.async {
+                onError(error)
+            }
+        }
     }
     
 }

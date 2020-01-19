@@ -15,7 +15,7 @@ struct Quote : Codable {
     var low: String
     var close: String
     var volume: String
-
+    
     var timeWithoutDate: String {
         let dateFormatterFull = DateFormatter()
         dateFormatterFull.dateFormat = "yyyy-MM-dd HH:mm:ss"
