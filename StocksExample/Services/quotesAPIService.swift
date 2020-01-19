@@ -22,13 +22,15 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
         let url = URL(string: "\(BASE_URL)query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)&interval=\(interval)&apikey=\(API_KEY)")
         
         URLSession.shared.dataTask(with: url!){ (data, response, err) in
-            guard let data = data else {return}
+            guard let data = data else {
+                onError(AlphaVantageQuoteError.errorOnApiCall(message: "No data returned from server"))
+                return}
             
             do{
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as AnyObject
                 var quotes = [Quote]()
                 if let errorString = json["Error Message"] as? String {
-                    onError(AlphaVantageQuoteError.invalidApiCall(message: errorString))
+                    onError(AlphaVantageQuoteError.errorOnApiCall(message: errorString))
                 }
                 
                 /*
@@ -40,11 +42,15 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
                      Quote Model is built with the date so we have to "flatten" the Json to add the dynamic date key for each qoute
                      */
                     for (key, value) in times {
-                        guard let open = value["1. open"] as? String else {return}
-                        guard let high = value["2. high"] as? String else {return}
-                        guard let low = value["3. low"] as? String else {return}
-                        guard let close = value["4. close"] as? String else {return}
-                        guard let volume = value["5. volume"] as? String else {return}
+                        guard let open = value["1. open"] as? String,
+                            let high = value["2. high"] as? String,
+                            let low = value["3. low"] as? String,
+                            let close = value["4. close"] as? String,
+                            let volume = value["5. volume"] as? String
+                            else {
+                                onError(AlphaVantageQuoteError.parsingError)
+                                return
+                        }
                         quotes.append(Quote(date: key, open: open, high: high, low: low, close: close, volume: volume))
                     }
                 }
@@ -57,7 +63,8 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
     }
     
     enum AlphaVantageQuoteError: Error {
-        case invalidApiCall(message: String)
+        case errorOnApiCall(message: String)
+        case parsingError
     }
     
 }
