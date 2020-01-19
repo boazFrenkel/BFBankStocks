@@ -19,7 +19,6 @@ struct QuotesDataLoader: QuotesDataProvider {
     //return quotes sorted by quote date
     func getQuotesSortedByDate(for symbol: String, interval: String, onSuccess: @escaping ([Quote]) -> (), onError: @escaping (Error) -> Void) {
         
-        DispatchQueue.global(qos: .userInitiated).async {
             self.quotesAPIService.getQuotes(for: symbol, interval: interval, onSuccess: { (quotes) in
                 
                 let sortedQuotes = quotes.sorted(by: Quote.sorterForQuoteDate(this:that:))
@@ -33,7 +32,6 @@ struct QuotesDataLoader: QuotesDataProvider {
                     onError(error)
                 }
             }
-        }
     }
     
 }
