@@ -28,11 +28,11 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
                     do {
                         let json = try response.mapJSON(failsOnEmptyData: true) as! Json
                         
-                        if let errorString = json["Error Message"] as? String {
+                        if let errorString = json[Constants.errorMessage] as? String {
                             onError(AlphaVantageQuoteError.errorOnApiCall(message: errorString))
                             return
                         }
-                        if let errorString = json["Note"] as? String {
+                        if let errorString = json[Constants.note] as? String {
                             onError(AlphaVantageQuoteError.errorOnApiCall(message: errorString))
                             return
                         }
@@ -41,7 +41,7 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
                          The array of relevent quotes is nested inside a dynamic (depends on the interval param we sent) Time Series + (xmin) key
                          */
                         var quotes = [Quote]()
-                        guard let timeSeries = json["Time Series (\(interval))"] as? NSDictionary,
+                        guard let timeSeries = json["\(Constants.timeSeries) (\(interval))"] as? NSDictionary,
                             let times = timeSeries as? [String: AnyObject]
                             else {
                                 onError(AlphaVantageQuoteError.parsingError)
@@ -52,11 +52,11 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
                          Quote Model is built with the date so we have to "flatten" the Json to add the dynamic date key for each qoute
                          */
                         for (key, value) in times {
-                            guard let open = value["1. open"] as? String,
-                                let high = value["2. high"] as? String,
-                                let low = value["3. low"] as? String,
-                                let close = value["4. close"] as? String,
-                                let volume = value["5. volume"] as? String
+                            guard let open = value[Constants.oneOpen] as? String,
+                                let high = value[Constants.twoHigh] as? String,
+                                let low = value[Constants.threeLow] as? String,
+                                let close = value[Constants.fourClose] as? String,
+                                let volume = value[Constants.fiveVolume] as? String
                                 else {
                                     onError(AlphaVantageQuoteError.parsingError)
                                     return

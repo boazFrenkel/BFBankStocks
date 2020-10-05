@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C087F26252B640400EB79C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C087F25252B640400EB79C7 /* Constants.swift */; };
+		4C087F28252B9C1C00EB79C7 /* StoryboardNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C087F27252B9C1C00EB79C7 /* StoryboardNames.swift */; };
 		4C3084BB23D1A41D009B00DA /* StocksProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084BA23D1A41D009B00DA /* StocksProvider.swift */; };
 		4C3084C023D1A50B009B00DA /* BFGridFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084BF23D1A50B009B00DA /* BFGridFlowLayout.swift */; };
 		4C3084C323D1A56B009B00DA /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084C223D1A56B009B00DA /* GridViewCell.swift */; };
@@ -30,7 +32,6 @@
 		4CAF750323CF961D002C2E56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF750123CF961D002C2E56 /* Main.storyboard */; };
 		4CAF750523CF961E002C2E56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF750423CF961E002C2E56 /* Assets.xcassets */; };
 		4CAF750823CF961E002C2E56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF750623CF961E002C2E56 /* LaunchScreen.storyboard */; };
-		4CAF751323CF961E002C2E56 /* StocksExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF751223CF961E002C2E56 /* StocksExampleTests.swift */; };
 		4CAF752023CFBAA4002C2E56 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF751F23CFBAA4002C2E56 /* Stock.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C087F25252B640400EB79C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4C087F27252B9C1C00EB79C7 /* StoryboardNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardNames.swift; sourceTree = "<group>"; };
 		4C3084BA23D1A41D009B00DA /* StocksProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksProvider.swift; sourceTree = "<group>"; };
 		4C3084BF23D1A50B009B00DA /* BFGridFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFGridFlowLayout.swift; sourceTree = "<group>"; };
 		4C3084C223D1A56B009B00DA /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
@@ -69,8 +72,7 @@
 		4CAF750723CF961E002C2E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CAF750923CF961E002C2E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CAF750E23CF961E002C2E56 /* StocksExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StocksExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CAF751223CF961E002C2E56 /* StocksExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksExampleTests.swift; sourceTree = "<group>"; };
-		4CAF751423CF961E002C2E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CAF751423CF961E002C2E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = StocksExampleTests/Info.plist; sourceTree = SOURCE_ROOT; };
 		4CAF751F23CFBAA4002C2E56 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C087F24252B63B200EB79C7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4C087F25252B640400EB79C7 /* Constants.swift */,
+				4C087F27252B9C1C00EB79C7 /* StoryboardNames.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		4C3084B923D1A3EB009B00DA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +182,10 @@
 		4CAF74FA23CF961D002C2E56 /* StocksExample */ = {
 			isa = PBXGroup;
 			children = (
+				4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */,
+				4CAF750923CF961E002C2E56 /* Info.plist */,
+				4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */,
+				4CAF751423CF961E002C2E56 /* Info.plist */,
 				4C80E2EC252B139A0036D69F /* Generic */,
 				4C3084D423D3A899009B00DA /* Extensions */,
 				4C3084B923D1A3EB009B00DA /* Storyboard */,
@@ -178,9 +193,7 @@
 				4CAF751D23CFB49E002C2E56 /* Model */,
 				4C3084BC23D1A485009B00DA /* Controller */,
 				4CAF750423CF961E002C2E56 /* Assets.xcassets */,
-				4CAF750923CF961E002C2E56 /* Info.plist */,
-				4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */,
-				4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */,
+				4C087F24252B63B200EB79C7 /* Utils */,
 			);
 			path = StocksExample;
 			sourceTree = "<group>";
@@ -189,8 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				4C3084D923D4232B009B00DA /* QuotsdDataLoaderTests.swift */,
-				4CAF751223CF961E002C2E56 /* StocksExampleTests.swift */,
-				4CAF751423CF961E002C2E56 /* Info.plist */,
 			);
 			path = StocksExampleTests;
 			sourceTree = "<group>";
@@ -327,6 +338,7 @@
 			files = (
 				4C80E2F2252B18F80036D69F /* GenericCollectionView.swift in Sources */,
 				4CAF750023CF961D002C2E56 /* BankStocksViewController.swift in Sources */,
+				4C087F28252B9C1C00EB79C7 /* StoryboardNames.swift in Sources */,
 				4C3084DF23D4774A009B00DA /* AlphaVantageProvider.swift in Sources */,
 				4C3084C323D1A56B009B00DA /* GridViewCell.swift in Sources */,
 				4C3084BB23D1A41D009B00DA /* StocksProvider.swift in Sources */,
@@ -342,6 +354,7 @@
 				4C3084D623D3A8C8009B00DA /* UIViewControllerExtension .swift in Sources */,
 				4C3084CF23D31C18009B00DA /* QuotesDataProvider.swift in Sources */,
 				4C3084D123D31C9C009B00DA /* Quote.swift in Sources */,
+				4C087F26252B640400EB79C7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +363,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C3084DA23D4232B009B00DA /* QuotsdDataLoaderTests.swift in Sources */,
-				4CAF751323CF961E002C2E56 /* StocksExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

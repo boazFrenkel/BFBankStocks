@@ -51,7 +51,8 @@ extension BankStocksViewController : UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let stock = stocks[indexPath.row]
-        let vc: QuotesViewController = QuotesViewController.create(storyboard:"StockQuotes")
+        //TODO: Move to a coordinator
+        let vc: QuotesViewController = QuotesViewController.create(storyboard:StoryboardNames.stockQuotes.rawValue)
         vc.stockSymbol = stock.symbol
         vc.stockName = stock.name
         self.navigationController?.pushViewController(vc, animated: true)

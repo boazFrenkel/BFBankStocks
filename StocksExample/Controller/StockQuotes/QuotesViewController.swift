@@ -54,8 +54,8 @@ final class QuotesViewController: UIViewController {
     }
     
     private func showAlert(for error: Error) {
-        let alert = UIAlertController(title: "Oops", message: "\(error)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let alert = UIAlertController(title: Constants.oops, message: "\(error)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Constants.ok, style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -79,15 +79,15 @@ extension QuotesViewController {
         var timeIntervalString: String {
             switch self {
             case .oneMin:
-                return "1min"
+                return Constants.oneMin
             case .fiveMin:
-                return "5min"
+                return Constants.fiveMin
             case .fifteenMin:
-                return "15min"
+                return Constants.fifteenMin
             case .thirtyMin:
-                return "30min"
+                return Constants.thirtyMin
             case .oneHour:
-                return "60min"
+                return Constants.sixtyMin
                 
             }
         }
