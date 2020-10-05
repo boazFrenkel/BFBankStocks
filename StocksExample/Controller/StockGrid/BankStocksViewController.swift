@@ -13,7 +13,10 @@ final class BankStocksViewController: UIViewController {
     
     private var stocks = [Stock]()
     var stockProvider: StocksDataProvider = LocalStocksProvider()
+    var collectionDataSource: CollectionDataSource<Stock>?
+    
     @IBOutlet weak var collectionView : UICollectionView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,39 +25,26 @@ final class BankStocksViewController: UIViewController {
     }
     
     private func setupCollection() {
-        self.collectionView.dataSource = self
+        self.setupCollectionDataSource(stocks: stocks)
+        self.collectionView.dataSource = collectionDataSource
         self.collectionView.delegate = self
         let flowLayout = BFGridFlowLayout()
         self.collectionView.setCollectionViewLayout(flowLayout, animated: false)
         collectionView.reloadData()
     }
+    
+    func setupCollectionDataSource(stocks: [Stock]) {
+        collectionDataSource = CollectionDataSource(models: stocks, reuseIdentifier: GridViewCell.className, cellConfigurator: { (stock, cell, indexPath) in
+            
+            guard let cell = cell as? GridViewCell else {return}
+            
+            cell.nameLabel.text = stock.name
+            cell.symbolLabel.text = stock.symbol
+            cell.imageView.sd_setImage(with: URL(string: stock.imagePath), placeholderImage: UIImage(named: "bankPlaceholder"))
+        })
+    }
 }
 
-extension BankStocksViewController : UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return stocks.count
-    }
-    
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let stock = self.stocks[indexPath.row]
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GridViewCell.self), for: indexPath) as? GridViewCell
-            else { fatalError("unexpected cell in collection view") }
-        
-        cell.nameLabel.text = stock.name
-        cell.symbolLabel.text = stock.symbol
-        cell.imageView.sd_setImage(with: URL(string: stock.imagePath), placeholderImage: UIImage(named: "bankPlaceholder"))
-        
-        return cell
-    }
-}
 
 extension BankStocksViewController : UICollectionViewDelegate{
     

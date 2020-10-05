@@ -18,10 +18,11 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
     let provider = MoyaProvider<AlphaVantageProvider>()
     
     func getQuotes(for symbol: String, interval: String, onSuccess: @escaping (_ quotes: [Quote]) -> (), onError: @escaping (Error) -> Void) {
-        
-        provider.request(.quotes(symbol: symbol, interval: interval)) { (result) in
-            //We don't want to do this work on the main thread
-            DispatchQueue.global(qos: .userInitiated).async {
+        let queue = DispatchQueue.global(qos: .userInteractive)
+        //We don't want to do this work on the main thread
+        provider.request(.quotes(symbol: symbol, interval: interval),
+                         callbackQueue: queue) { (result) in
+            
                 switch result {
                 case .success(let response):
                     do {
@@ -72,8 +73,6 @@ struct AlphaVantageQuotesAPIService: QuotesAPI {
                     onError(error)
                     return
                 }
-            }
-            
         }
     }
     

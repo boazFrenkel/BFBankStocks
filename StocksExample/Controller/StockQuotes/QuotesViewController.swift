@@ -18,6 +18,7 @@ final class QuotesViewController: UIViewController {
     var stockSymbol: String = ""
     var stockName: String = ""
     var quotes: [Quote] = []
+    var quotesDataSource: TableViewDataSource<Quote>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,12 @@ final class QuotesViewController: UIViewController {
     }
     
     private func setupQuotesTable() {
-        self.quotesTableView.dataSource = self
+        self.quotesDataSource = .make(for: quotes)
+        self.quotesTableView.dataSource = self.quotesDataSource
+        self.quotesTableView.reloadData()
+        if quotes.count > 0 {
+            self.quotesTableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+        }
     }
     
     private func loadQuotes() {
@@ -36,14 +42,10 @@ final class QuotesViewController: UIViewController {
         let interval = TimeInterval(rawValue: intervalSelection.selectedSegmentIndex)?.timeIntervalString ?? ""
         
         dataLoader.getQuotesSortedByDate(for: stockSymbol, interval: interval, onSuccess: {[weak self] (quotes)  in
-            
             guard let self = self else {return}
             self.activityIndicator.stopAnimating()
             self.quotes = quotes
-            self.quotesTableView.reloadData()
-            if quotes.count > 0 {
-                self.quotesTableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
-            }
+            self.setupQuotesTable()
         }) { (error) in
             //Handle the error gracefully and not this simple alert
             self.activityIndicator.stopAnimating()
@@ -51,38 +53,19 @@ final class QuotesViewController: UIViewController {
         }
     }
     
-    @IBAction func intervalSelected(_ sender: Any) {
-        loadQuotes()
-    }
-    
     private func showAlert(for error: Error) {
         let alert = UIAlertController(title: "Oops", message: "\(error)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+
+    // MARK : Actions
+    @IBAction func intervalSelected(_ sender: Any) {
+        loadQuotes()
+    }
+
 }
 
-extension QuotesViewController : UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return quotes.count
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let quote = quotes[indexPath.row]
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: QuoteTableCell.self), for: indexPath) as? QuoteTableCell
-            else { fatalError("unexpected cell in collection view") }
-        
-        cell.setup(from: quote)
-        return cell
-    }
-    
-}
 //Helper Enum for mapping time intervals
 extension QuotesViewController {
     
@@ -107,6 +90,20 @@ extension QuotesViewController {
                 return "60min"
                 
             }
+        }
+    }
+}
+
+extension TableViewDataSource where T == Quote {
+    
+    static func make(for options: [T],
+                     reuseIdentifier: String = QuoteTableCell.className) -> TableViewDataSource {
+        return TableViewDataSource(
+            models: options,
+            reuseIdentifier: reuseIdentifier
+        ) { (quote, cell) in
+            guard let cell = cell as? QuoteTableCell else { return }
+            cell.setup(from: quote)
         }
     }
 }
