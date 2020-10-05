@@ -20,12 +20,12 @@ public enum AlphaVantageProvider {
 extension AlphaVantageProvider: TargetType {
     
     public var baseURL: URL {
-        return URL(string: "https://www.alphavantage.co")!
+        return URL(string: Constants.alphavantageAPIBase)!
     }
     
     public var path: String {
         switch self {
-        case .quotes: return "/query"
+        case .quotes: return Constants.query
         }
     }
     
@@ -45,17 +45,17 @@ extension AlphaVantageProvider: TargetType {
         switch self {
         case .quotes(let symbol,let interval):
             let parameters: [String : Any] = [
-                "function": "TIME_SERIES_INTRADAY",
-                "symbol": symbol,
-                "interval": interval,
-                "apikey": AlphaVantageProvider.apiKey
+                Constants.functionParam : Constants.timeSeriesIntrday,
+                Constants.symbolParam: symbol,
+                Constants.intervalParam: interval,
+                Constants.apiKeyParam: AlphaVantageProvider.apiKey
             ]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }
     
     public var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
+        return [Constants.contentType: Constants.applicationJSON]
     }
     
     public var validationType: ValidationType {

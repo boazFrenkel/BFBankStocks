@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C087F26252B640400EB79C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C087F25252B640400EB79C7 /* Constants.swift */; };
+		4C087F28252B9C1C00EB79C7 /* StoryboardNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C087F27252B9C1C00EB79C7 /* StoryboardNames.swift */; };
 		4C3084BB23D1A41D009B00DA /* StocksProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084BA23D1A41D009B00DA /* StocksProvider.swift */; };
 		4C3084C023D1A50B009B00DA /* BFGridFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084BF23D1A50B009B00DA /* BFGridFlowLayout.swift */; };
 		4C3084C323D1A56B009B00DA /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084C223D1A56B009B00DA /* GridViewCell.swift */; };
@@ -22,13 +24,14 @@
 		4C3084DA23D4232B009B00DA /* QuotsdDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084D923D4232B009B00DA /* QuotsdDataLoaderTests.swift */; };
 		4C3084DD23D47064009B00DA /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 4C3084DC23D47064009B00DA /* Moya */; };
 		4C3084DF23D4774A009B00DA /* AlphaVantageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3084DE23D4774A009B00DA /* AlphaVantageProvider.swift */; };
+		4C80E2EE252B13BC0036D69F /* GenericTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80E2ED252B13BC0036D69F /* GenericTableView.swift */; };
+		4C80E2F2252B18F80036D69F /* GenericCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80E2F1252B18F80036D69F /* GenericCollectionView.swift */; };
 		4CAF74FC23CF961D002C2E56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */; };
 		4CAF74FE23CF961D002C2E56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */; };
 		4CAF750023CF961D002C2E56 /* BankStocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF74FF23CF961D002C2E56 /* BankStocksViewController.swift */; };
 		4CAF750323CF961D002C2E56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF750123CF961D002C2E56 /* Main.storyboard */; };
 		4CAF750523CF961E002C2E56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF750423CF961E002C2E56 /* Assets.xcassets */; };
 		4CAF750823CF961E002C2E56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF750623CF961E002C2E56 /* LaunchScreen.storyboard */; };
-		4CAF751323CF961E002C2E56 /* StocksExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF751223CF961E002C2E56 /* StocksExampleTests.swift */; };
 		4CAF752023CFBAA4002C2E56 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF751F23CFBAA4002C2E56 /* Stock.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C087F25252B640400EB79C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4C087F27252B9C1C00EB79C7 /* StoryboardNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardNames.swift; sourceTree = "<group>"; };
 		4C3084BA23D1A41D009B00DA /* StocksProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksProvider.swift; sourceTree = "<group>"; };
 		4C3084BF23D1A50B009B00DA /* BFGridFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFGridFlowLayout.swift; sourceTree = "<group>"; };
 		4C3084C223D1A56B009B00DA /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
@@ -56,6 +61,8 @@
 		4C3084D723D3AE57009B00DA /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		4C3084D923D4232B009B00DA /* QuotsdDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotsdDataLoaderTests.swift; sourceTree = "<group>"; };
 		4C3084DE23D4774A009B00DA /* AlphaVantageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageProvider.swift; sourceTree = "<group>"; };
+		4C80E2ED252B13BC0036D69F /* GenericTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableView.swift; sourceTree = "<group>"; };
+		4C80E2F1252B18F80036D69F /* GenericCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCollectionView.swift; sourceTree = "<group>"; };
 		4CAF74F823CF961D002C2E56 /* StocksExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,8 +72,7 @@
 		4CAF750723CF961E002C2E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CAF750923CF961E002C2E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CAF750E23CF961E002C2E56 /* StocksExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StocksExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CAF751223CF961E002C2E56 /* StocksExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksExampleTests.swift; sourceTree = "<group>"; };
-		4CAF751423CF961E002C2E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CAF751423CF961E002C2E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = StocksExampleTests/Info.plist; sourceTree = SOURCE_ROOT; };
 		4CAF751F23CFBAA4002C2E56 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C087F24252B63B200EB79C7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4C087F25252B640400EB79C7 /* Constants.swift */,
+				4C087F27252B9C1C00EB79C7 /* StoryboardNames.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		4C3084B923D1A3EB009B00DA /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +152,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4C80E2EC252B139A0036D69F /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				4C80E2ED252B13BC0036D69F /* GenericTableView.swift */,
+				4C80E2F1252B18F80036D69F /* GenericCollectionView.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
 		4CAF74EF23CF961D002C2E56 = {
 			isa = PBXGroup;
 			children = (
@@ -158,15 +182,18 @@
 		4CAF74FA23CF961D002C2E56 /* StocksExample */ = {
 			isa = PBXGroup;
 			children = (
+				4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */,
+				4CAF750923CF961E002C2E56 /* Info.plist */,
+				4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */,
+				4CAF751423CF961E002C2E56 /* Info.plist */,
+				4C80E2EC252B139A0036D69F /* Generic */,
 				4C3084D423D3A899009B00DA /* Extensions */,
 				4C3084B923D1A3EB009B00DA /* Storyboard */,
 				4CAF751E23CFB4B3002C2E56 /* Services */,
 				4CAF751D23CFB49E002C2E56 /* Model */,
 				4C3084BC23D1A485009B00DA /* Controller */,
 				4CAF750423CF961E002C2E56 /* Assets.xcassets */,
-				4CAF750923CF961E002C2E56 /* Info.plist */,
-				4CAF74FB23CF961D002C2E56 /* AppDelegate.swift */,
-				4CAF74FD23CF961D002C2E56 /* SceneDelegate.swift */,
+				4C087F24252B63B200EB79C7 /* Utils */,
 			);
 			path = StocksExample;
 			sourceTree = "<group>";
@@ -175,8 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				4C3084D923D4232B009B00DA /* QuotsdDataLoaderTests.swift */,
-				4CAF751223CF961E002C2E56 /* StocksExampleTests.swift */,
-				4CAF751423CF961E002C2E56 /* Info.plist */,
 			);
 			path = StocksExampleTests;
 			sourceTree = "<group>";
@@ -311,7 +336,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C80E2F2252B18F80036D69F /* GenericCollectionView.swift in Sources */,
 				4CAF750023CF961D002C2E56 /* BankStocksViewController.swift in Sources */,
+				4C087F28252B9C1C00EB79C7 /* StoryboardNames.swift in Sources */,
 				4C3084DF23D4774A009B00DA /* AlphaVantageProvider.swift in Sources */,
 				4C3084C323D1A56B009B00DA /* GridViewCell.swift in Sources */,
 				4C3084BB23D1A41D009B00DA /* StocksProvider.swift in Sources */,
@@ -322,10 +349,12 @@
 				4C3084D823D3AE57009B00DA /* NSObjectExtension.swift in Sources */,
 				4C3084CD23D31B99009B00DA /* quotesAPIService.swift in Sources */,
 				4C3084C923D20D59009B00DA /* QuotesViewController.swift in Sources */,
+				4C80E2EE252B13BC0036D69F /* GenericTableView.swift in Sources */,
 				4CAF74FE23CF961D002C2E56 /* SceneDelegate.swift in Sources */,
 				4C3084D623D3A8C8009B00DA /* UIViewControllerExtension .swift in Sources */,
 				4C3084CF23D31C18009B00DA /* QuotesDataProvider.swift in Sources */,
 				4C3084D123D31C9C009B00DA /* Quote.swift in Sources */,
+				4C087F26252B640400EB79C7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +363,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C3084DA23D4232B009B00DA /* QuotsdDataLoaderTests.swift in Sources */,
-				4CAF751323CF961E002C2E56 /* StocksExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
