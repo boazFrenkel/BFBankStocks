@@ -14,6 +14,8 @@ protocol StocksDataProvider {
 
 struct LocalStocksProvider: StocksDataProvider {
     
+    let banksJson = Constants.banksJson.data(using: .utf8)!
+    
     func getStocksSortedByPriority() -> [Stock]? {
         do {
             let content = banksJson
@@ -35,5 +37,4 @@ struct LocalStocksProvider: StocksDataProvider {
         return thisPriority > thatPriority
     }
     
-    let banksJson = Constants.banksJson.data(using: .utf8)!
 }
